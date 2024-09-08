@@ -8,6 +8,14 @@ type info struct {
 	age    int
 }
 
+func f1() {
+	fmt.Println("call f1()")
+}
+
+func f2() {
+	fmt.Println("call f2()")
+}
+
 func main() {
 
 	fmt.Println("Hello world!")
@@ -53,8 +61,10 @@ func main() {
 	var t = make(chan int, 100) // channel
 	fmt.Printf("t: \t%v\n", t)
 
-	var n int = 5
+	var n int = 1
 	switch n {
+	case 1:
+		fallthrough
 	case 2, 3, 4:
 		fmt.Printf("case 1")
 	case 5:
@@ -62,4 +72,23 @@ func main() {
 	case 6, 7:
 		fmt.Printf("case 3")
 	}
+
+	fmt.Println()
+	var (
+		n1 int = 1
+		n2 int = 2
+		n3 int = 3
+	)
+	switch {
+	case n1 < n2:
+		f1()
+	case n2 < n3:
+		f2()
+	default:
+		fmt.Println("default")
+	}
+
+	fmt.Println()
+
+	ClosureTest()
 }

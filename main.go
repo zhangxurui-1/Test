@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type info struct {
 	height int
@@ -48,6 +50,21 @@ func main() {
 	var s3 string = "hello"
 	var c = s3[1]
 	fmt.Printf("s3[1]: \t%v\nc: \t%v\n", s3[1], c)
+	fmt.Printf("type of c: \t%T\n", c)
+
+	fmt.Println()
+	var a = [3]int{1, 2, 3}
+	fmt.Printf("a[:]: \t%v\n", a[:])
+	fmt.Printf("type of a: \t%T\n", a)
+	fmt.Printf("type of a[:]: \t%T\n", a[:])
+	var pa *[3]int = &a
+	fmt.Printf("pa: \t%v(%p)\n\n", pa, pa)
+
+	var b = []int{1, 2, 3}
+	var pb1 *[]int = &b
+	var pb2 *[3]int = (*[3]int)(b)
+	fmt.Printf("pb1: \t%v(%p)\n", pb1, pb1)
+	fmt.Printf("pb2: \t%v(%p)\n\n", pb2, pb2)
 
 	for i, c := range s3 {
 		fmt.Printf("%v\t%v\n", i, c)

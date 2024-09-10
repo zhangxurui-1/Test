@@ -111,5 +111,7 @@ func main() {
 
 	// demo.ClosureTest()
 
-	demo.DeferTest()
+	// demo.DeferTest()
+
+	demo.MethodTest()
 }

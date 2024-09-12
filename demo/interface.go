@@ -92,7 +92,24 @@ func ParamPassTest() {
 func PrintInterfaceInfo(shape Shape) {
 	fmt.Println("Area: ", shape.Area(), "\tPerimeter: ", shape.Perimeter())
 	fmt.Println("Type: ", reflect.TypeOf(shape), "\tValue: ", reflect.ValueOf(shape))
+	v1, ok1 := shape.(interface{})
+	fmt.Println("interface{}\t", v1, "\t", ok1)
+	v2, ok2 := shape.(Rectangle)
+	fmt.Println("Rectangle\t", v2, "\t", ok2)
+	v3, ok3 := shape.(*Rectangle)
+	fmt.Println("*Rectangle\t", v3, "\t", ok3)
 
+	/*
+		// Complie error.
+		// impossible type assertion: shape.(Circle) ...	Circle does not implement Shape
+
+		v4, ok4 := shape.(Circle)
+		fmt.Println("Circle\t", v4, "\t", ok4)
+	*/
+
+	v5, ok5 := shape.(*Circle)
+	fmt.Println("*Circle\t", v5, "\t", ok5)
+	fmt.Println()
 }
 
 func InterfaceTest() {

@@ -113,5 +113,7 @@ func main() {
 
 	// demo.DeferTest()
 
-	demo.MethodTest()
+	// demo.MethodTest()
+
+	demo.InterfaceTest()
 }

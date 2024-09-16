@@ -109,6 +109,18 @@ func PrintInterfaceInfo(shape Shape) {
 
 	v5, ok5 := shape.(*Circle)
 	fmt.Println("*Circle\t", v5, "\t", ok5)
+
+	switch shape.(type) {
+	case nil:
+		fmt.Println("shape is nil")
+	case Rectangle:
+		// 不能写成 demo.Rectangle (循环导包)
+		fmt.Println("shape is Rectangle")
+	case *Rectangle:
+		fmt.Println("shape is *Rectangle")
+	case *Circle:
+		fmt.Println("shape is *Circle")
+	}
 	fmt.Println()
 }
 

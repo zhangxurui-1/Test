@@ -115,5 +115,7 @@ func main() {
 
 	// demo.MethodTest()
 
-	demo.InterfaceTest()
+	// demo.InterfaceTest()
+
+	demo.GenericTest()
 }

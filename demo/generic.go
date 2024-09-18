@@ -25,9 +25,9 @@ func (set UnorderedSet[T]) Remove(value T) {
 }
 
 func (set UnorderedSet[T]) PrintInfo() {
-	fmt.Printf("%T:{ ", set)
+	fmt.Printf("%T: {", set)
 	var tmp []T
-	for k, _ := range set {
+	for k := range set {
 		tmp = append(tmp, k)
 	}
 	for i := 0; i < len(tmp)-1; i++ {
@@ -134,6 +134,7 @@ func GenericTest() {
 	)
 	uoSet.Insert("")
 	uoSet.Insert("zhang")
+	uoSetp.Insert("xu")
 	uoSetp.Insert("xu")
 	uoSetp.Insert("rui")
 	uoSet.PrintInfo()

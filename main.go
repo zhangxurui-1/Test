@@ -117,5 +117,7 @@ func main() {
 
 	// demo.InterfaceTest()
 
-	demo.GenericTest()
+	// demo.GenericTest()
+
+	demo.SortTest_1()
 }

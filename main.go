@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"Demo/demo"
+	"os"
 )
 
 type info struct {
@@ -18,6 +17,12 @@ func f1() {
 
 func f2() {
 	fmt.Println("call f2()")
+}
+
+// 修改fmt.Println()
+func Println(a interface{}) (n int, err error) {
+	println("--------------------")
+	return fmt.Fprintln(os.Stdout, a)
 }
 
 func main() {
@@ -119,5 +124,8 @@ func main() {
 
 	// demo.GenericTest()
 
-	demo.SortTest_1()
+	// demo.SortTest_1()
+
+	// demo.GoRoutineTest()
+
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"demo/demo"
 	"fmt"
 	"os"
 )
@@ -23,6 +24,38 @@ func f2() {
 func Println(a interface{}) (n int, err error) {
 	println("--------------------")
 	return fmt.Fprintln(os.Stdout, a)
+}
+
+// plugin测试
+func PluginTest() {
+	err := demo.LoadAndInvokeFromPlugin("./plugins/plugin1.so")
+	if err != nil {
+		fmt.Println("LoadAndInvokeFromPlugin error: ", err)
+		os.Exit(1)
+	}
+	fmt.Println("LoadAndInvokeFromPlugin OK")
+}
+
+// plugin init()函数调用测试
+func LoadPluginTest() {
+	// 第一次加载
+	// 只有第一次加载会执行init()
+	fmt.Println("LoadPlugin...")
+	err := demo.LoadPlugin("./plugins/plugin1.so")
+	if err != nil {
+		fmt.Println("LoadPlugin error: ", err)
+		os.Exit(1)
+	}
+	fmt.Println("LoadPlugin OK")
+
+	// 第二次加载
+	fmt.Println("Re-LoadPlugin...")
+	err = demo.LoadPlugin("./plugins/plugin1.so")
+	if err != nil {
+		fmt.Println("LoadPlugin error: ", err)
+		os.Exit(1)
+	}
+	fmt.Println("Re-LoadPlugin OK")
 }
 
 func main() {
@@ -128,4 +161,7 @@ func main() {
 
 	// demo.GoRoutineTest()
 
+	// PluginTest()
+
+	LoadPluginTest()
 }
